@@ -4,18 +4,13 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://localhost:3000',
-
+  urlApi: 'http://localhost:1972',
+  //rutaSocket: 'http://localhost:1996',
   service: {
     ciudades: {
       public: false,
       nameservice: 'ciudad',
       endpoint: '/ciudades'
-    },
-    temperaturas: {
-      public: false,
-      nameservice: 'temperaturas',
-      endpoint: '/coordenadas'
     }
   }
 };
