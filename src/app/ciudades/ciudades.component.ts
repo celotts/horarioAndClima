@@ -16,9 +16,7 @@ export class CiudadesComponent implements OnInit {
   }
 
   getTodasCiudades() {
-    this.ciudadesService.getCiudades();
-    this.ciudadesService.getTemperatura().subscribe(resCiudades => {
-      debugger
+    this.ciudadesService.getCiudades().subscribe(resCiudades => {
       this.ciudades = resCiudades;
 
     });
