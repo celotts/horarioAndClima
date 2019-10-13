@@ -11,11 +11,11 @@ import 'rxjs/add/operator/map';
   providedIn: 'root'
 })
 export class CiudadesService {
-    headers: any;
-    private socket: any;
-	
-	private ciudadesSource = new BehaviorSubject<any>([]); 
-	public ciudade$ = this.ciudadesSource.asObservable();
+  headers: any;
+  private socket: any;
+
+  private ciudadesSource = new BehaviorSubject<any>([]);
+  public ciudade$ = this.ciudadesSource.asObservable();
 
   constructor(private http: HttpClient) {
     this.headers = new HttpHeaders({
