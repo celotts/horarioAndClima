@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   urlApi: 'http://localhost:1972',
-  //rutaSocket: 'http://localhost:1996',
   service: {
     ciudades: {
       public: false,
