@@ -13,12 +13,10 @@ export class CiudadesComponent implements OnInit {
 
   ngOnInit() {
     this.getTodasCiudades();
+    this.ciudadesService.ciudades$.subscribe(resCiudades => this.ciudades = resCiudades);
   }
 
   getTodasCiudades() {
-    this.ciudadesService.getCiudades().subscribe(resCiudades => {
-      this.ciudades = resCiudades;
-
-    });
+    this.ciudadesService.onCiudadesClima();
   }
 }
