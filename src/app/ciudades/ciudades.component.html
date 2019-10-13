@@ -4,11 +4,22 @@
     <div class="row">
       <div class="col-sm-4 mt-5" *ngFor="let item of ciudades">
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title text-center">{{item.nombreCiudad}} ({{item.codigoCiudad}})</h5>
-            <p class="card-text">Latitud: {{item.latitud}} Longitud: {{item.longitud}}.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="card-header">
+              <h5 class="text-center mt-2">{{item.ciudad}}</h5>
           </div>
+          <div class="card-body">
+            
+            <div class="row">
+                <div class="col-sm-6 card-text">Latitud: {{item.latitud}}</div>
+                <div class="col-sm-6 card-text">Longitud: {{item.longitud}}</div>              
+            </div>
+          </div>
+          <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-6 card-text">Hora: {{item.hora}}</div>
+                    <div class="col-sm-6 card-text">Clima: {{item.temperatura}} F.</div>  
+                </div>          
+            </div>
         </div>
       </div>
     </div>
