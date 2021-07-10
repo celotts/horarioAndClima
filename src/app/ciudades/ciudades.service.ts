@@ -15,23 +15,47 @@ export class CiudadesService {
   private socket: any;
 
   private ciudadesSource = new BehaviorSubject<any>([]);
-  public ciudade$ = this.ciudadesSource.asObservable();
+  public ciudades$ = this.ciudadesSource.asObservable();
 
   constructor(private http: HttpClient) {
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    //this.socket = io.connect(environment.rutaSocket)
+    this.socket = io(environment.urlApi);
+    this.onCiudadesClima();
   }
 
   getCiudades() {
     return this.http.get<any>(`${environment.urlApi}${environment.service.ciudades.endpoint}`, this.headers);
   }
 
-  /* onCiudadesClima(): Observable<any> {
-    this.socket.on('climaCiudades', (res) => {
-      this.ciudades.next(res);
+  onCiudadesClima(): void {
+    this.socket.on('connect', (res) => {
+      console.log("Conectado con el servidor");
+      this.ciudadesSource.next(res);
+    });
+
+    this.socket.on('disconnect', () => {
+      console.log("Se perdió conexión con el servidor");
+    });
+
+    // Emitir
+    this.socket.emit('solicitarInformacion', () => {
+
+    });
+
+    //Escuchar
+    this.socket.on("enviarData", (resData) => {
+      console.log("se recibe la data:", resData);
     })
-    return this.ciudadesClima();
+  }
+
+
+  /* ciudadesClima(): Observable<any> {
+    console.log("eeeeeeeeeeee");
+    return new Observable(mensaje => {
+      console.log("qqqqq", mensaje);
+      //this.ciudades = mensaje;
+    });
   } */
 }
